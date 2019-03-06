@@ -1,7 +1,24 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3000;
+  port = process.env.PORT || 3000,
+  mongoose = require('mongoose'),
+  Test = require('./api/models/startingModel'), //created model loading here
+  bodyParser = require('body-parser');
+  
+// mongoose instance connection url connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Test'); 
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+var routes = require('./api/routes/startingRoutes'); //importing route
+routes(app); //register the route
+
 
 app.listen(port);
 
-console.log('LISTTENING ON THIS PROT HERE: ' + port);
+
+console.log('Got that listening going on for this port: ' + port);
