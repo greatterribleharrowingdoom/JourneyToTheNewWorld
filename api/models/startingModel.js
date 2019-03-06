@@ -8,4 +8,4 @@ var yoIDKTestSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Testing', yoIDKTestSchema)
+module.exports = mongoose.model('Test', yoIDKTestSchema)

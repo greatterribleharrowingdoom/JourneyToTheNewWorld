@@ -1,7 +1,7 @@
 module.exports = function(app) {
     var testingController = require('../controllers/startingController');
   
-    // todoList Routes
+    // test Routes
     app.route('/tests')
       .get(testingController.list_all_tests)
       .post(testingController.create_a_test);

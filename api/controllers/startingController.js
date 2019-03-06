@@ -1,8 +1,8 @@
 var mongoose = require('mongoose'),
-  Test = mongoose.model('Tests');
+  Test = mongoose.model('Test');
 
 exports.list_all_tests = function(req, res) {
-  test.find({}, function(err, test) {
+  Test.find({}, function(err, test) {
     if (err)
       res.send(err);
     res.json(test);
@@ -13,7 +13,7 @@ exports.list_all_tests = function(req, res) {
 
 
 exports.create_a_test = function(req, res) {
-  var new_test = new test(req.body);
+  var new_test = new Test(req.body);
   new_test.save(function(err, test) {
     if (err)
       res.send(err);
@@ -23,7 +23,7 @@ exports.create_a_test = function(req, res) {
 
 
 exports.read_a_test = function(req, res) {
-  test.findById(req.params.testId, function(err, test) {
+  Test.findById(req.params.testId, function(err, test) {
     if (err)
       res.send(err);
     res.json(test);
@@ -32,7 +32,7 @@ exports.read_a_test = function(req, res) {
 
 
 exports.update_a_test = function(req, res) {
-  test.findOneAndUpdate({_id: req.params.testId}, req.body, {new: true}, function(err, test) {
+  Test.findOneAndUpdate({_id: req.params.testId}, req.body, {new: true}, function(err, test) {
     if (err)
       res.send(err);
     res.json(test);
@@ -41,9 +41,7 @@ exports.update_a_test = function(req, res) {
 
 
 exports.delete_a_test = function(req, res) {
-
-
-  test.remove({
+  Test.remove({
     _id: req.params.testId
   }, function(err, test) {
     if (err)
