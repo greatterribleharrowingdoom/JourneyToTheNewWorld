@@ -1,20 +1,11 @@
 var mongoose = require('mongoose');
 
+var Scene = require('./scene.model.js');
+
 var EpisodeSchema = new mongoose.Schema({
     episodeNumber: Number,
     title: String,
-    Scenes: [
-        {
-            sceneNumber: Number,
-            text: String,
-            options: [
-                {
-                    optionNumber: Number,
-                    text: String
-                }
-            ]
-        }
-    ]
+    scenes: [Scene.schema]
 });
 
 module.exports = mongoose.model('Episode', EpisodeSchema)
