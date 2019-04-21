@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var Scene = require('./scene.model.js');
+var Scene = require('./scene.model');
 
 var EpisodeSchema = new mongoose.Schema({
     episodeNumber: Number,
