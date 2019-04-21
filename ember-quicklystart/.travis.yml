@@ -25,3 +25,6 @@ script:
   #- npm run lint:hbs
  # - npm run lint:js
   - npm test
+
+  notifications:
+    webhooks: https://discordapp.com/api/webhooks/569586479131525122/bfM0Gd0gv_YWGpME9-KDDyEkbao2ZCUAR-YMSm_eQcPvLeNaFZPygl0pfY_vHLXVYNvD
