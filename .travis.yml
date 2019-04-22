@@ -17,13 +17,22 @@ script:
   - mv journey_into_the_latest.zip s3_latest_upload/journey_into_the_latest.zip
 
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  bucket: $BACK_END_BUCKET
-  local_dir: s3_latest_upload
-  skip_cleanup: true
-  region: us-east-2
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: $BACK_END_BUCKET
+    local_dir: s3_latest_upload
+    skip_cleanup: true
+    region: us-east-2
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: $BACK_END_BUCKET
+    key: journey_into_the_latest.zip
+    bundle_type: zip
+    application: JourneyIntoTheBackEnd
+    deployment_group: JourneyIntoTheBackEndDeploymentGroup
+    region: us-east-2
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
