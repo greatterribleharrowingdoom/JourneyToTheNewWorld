@@ -12,12 +12,16 @@ cache:
 
 script:
   - npm test
+  - zip -r journey_into_the_latest *
+  - mkdir -p s3_latest_upload
+  - mv journey_into_the_latest.zip s3_latest_upload/journey_into_the_latest.zip
 
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
   bucket: $BACK_END_BUCKET
+  local_dir: s3_latest_upload
   skip_cleanup: true
   region: us-east-2
 
