@@ -6,6 +6,7 @@ var express = require('express'),
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
+//fun comments
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://127.0.0.1:27017/Test'); 
 
