@@ -1,3 +1,3 @@
 #!/bin/bash
 cd /home/ubuntu/JourneyIntoTheBackend
-pm2 stop all
+pm2 stop server
