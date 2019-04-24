@@ -19,7 +19,7 @@ var routes = require('./api/routes/episode.route'); //importing route
 routes(app); //register the route
 
 
-app.listen(port);
+app.listen(8080, '172.31.30.12');
 
 
-console.log('Got that listening going on for this port: ' + port);
+console.log('Got that listening going on for this port: ' + 8080);

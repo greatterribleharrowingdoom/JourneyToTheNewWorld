@@ -1,9 +1,12 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
     commands:
-      - ^c
+      - printenv
+      - npm install -g ember-cli@3.3.0
+      - npm install
   build:
     commands:
-      - npm start
+      #- ember deploy $EMBER_CLI_DEPLOY_TARGET
+      - npm test
