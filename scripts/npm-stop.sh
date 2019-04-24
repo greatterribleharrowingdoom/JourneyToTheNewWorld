@@ -8,4 +8,4 @@ stopServer()
     exit 0
 }
 
-pm2 stop server
+#!pm2 stop server
